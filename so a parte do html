@@ -1605,13 +1605,145 @@
       makeLabel(name, color, x, h + 5, z);
       regBuilding(name, x, z, w, h, d, BUILDING_DATA[dataKey]);
     }
+function createDomDomain() {
 
+  var x = -40;
+  var z = -80;
+
+  // Base energética
+  var base = new THREE.Mesh(
+    new THREE.CylinderGeometry(10, 12, 2, 32),
+    new THREE.MeshStandardMaterial({
+      color: 0x001a00,
+      emissive: 0x003300,
+      emissiveIntensity: 1
+    })
+  );
+  base.position.set(x, 1, z);
+  scene.add(base);
+
+  // Tronco
+  var trunk = new THREE.Mesh(
+    new THREE.CylinderGeometry(3, 4, 28, 12),
+    new THREE.MeshStandardMaterial({
+      color: 0x004400,
+      emissive: 0x00aa44,
+      emissiveIntensity: 1.5
+    })
+  );
+  trunk.position.set(x, 14, z);
+  scene.add(trunk);
+
+  // Núcleo central
+  var core = new THREE.Mesh(
+    new THREE.SphereGeometry(4, 24, 24),
+    new THREE.MeshStandardMaterial({
+      color: 0x39FF14,
+      emissive: 0x39FF14,
+      emissiveIntensity: 4
+    })
+  );
+  core.position.set(x, 30, z);
+  scene.add(core);
+
+  // Galhos
+  for (let i = 0; i < 12; i++) {
+
+    const angle = (Math.PI * 2 / 12) * i;
+
+    const branch = new THREE.Mesh(
+      new THREE.CylinderGeometry(0.4, 0.8, 10, 8),
+      new THREE.MeshStandardMaterial({
+        color: 0x00aa66,
+        emissive: 0x00ff88,
+        emissiveIntensity: 2
+      })
+    );
+
+    branch.position.set(
+      x + Math.cos(angle) * 6,
+      25,
+      z + Math.sin(angle) * 6
+    );
+
+    branch.rotation.z = Math.PI / 2;
+    branch.rotation.y = angle;
+
+    scene.add(branch);
+  }
+
+  // Folhas de energia
+  for (let i = 0; i < 60; i++) {
+
+    const orb = new THREE.Mesh(
+      new THREE.SphereGeometry(0.8, 10, 10),
+      new THREE.MeshStandardMaterial({
+        color: 0x00ffcc,
+        emissive: 0x00ffcc,
+        emissiveIntensity: 3
+      })
+    );
+
+    orb.position.set(
+      x + (Math.random() - 0.5) * 18,
+      28 + Math.random() * 12,
+      z + (Math.random() - 0.5) * 18
+    );
+
+    scene.add(orb);
+  }
+
+  // Anéis de energia
+  for (let i = 0; i < 3; i++) {
+
+    const ring = new THREE.Mesh(
+      new THREE.TorusGeometry(8 + i * 3, 0.25, 16, 64),
+      new THREE.MeshStandardMaterial({
+        color: 0x39FF14,
+        emissive: 0x39FF14,
+        emissiveIntensity: 3
+      })
+    );
+
+    ring.rotation.x = Math.PI / 2;
+    ring.position.set(x, 16 + i * 5, z);
+
+    scene.add(ring);
+  }
+
+  addPointLight(
+    0x39FF14,
+    5,
+    80,
+    x,
+    32,
+    z
+  );
+
+  makeLabel(
+    'DOM DOMAIN',
+    '#39FF14',
+    x,
+    42,
+    z
+  );
+
+  regBuilding(
+    'DOM DOMAIN',
+    x,
+    z,
+    20,
+    40,
+    20,
+    BUILDING_DATA.b5
+  );
+}
     function createEvolutionaryBuildings() {
       createEvolutionaryBuilding('FORMS FACTORY', -100, -20, 'b1');
       createEvolutionaryBuilding('MEDIA MUSEUM', 100, -20, 'b2');
       createEvolutionaryBuilding('TYPOGRAPHY TEMPLE', -100, 32, 'b3');
       createEvolutionaryBuilding('ANIMATION ALLEY', 100, 32, 'b4');
-      createEvolutionaryBuilding('DOM DOMAIN', -40, -80, 'b5');
+      createDomDomain();
       createEvolutionaryBuilding('ARRAY ARCADE', 40, -80, 'b6');
       createEvolutionaryBuilding('STORAGE STATION', -40, 90, 'b7');
       createEvolutionaryBuilding('CANVAS COLISEUM', 40, 90, 'b8');
