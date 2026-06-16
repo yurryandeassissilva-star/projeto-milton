@@ -1205,35 +1205,107 @@
       b2: { title: 'MEDIA MUSEUM', sub: 'Polos Evolutivos', color: '#aaaaaa', icon: '?', sections: [{ tag: 'Em Construcao', lbl: 'Terreno', desc: 'Area reservada para Audio e Video HTML. Alunos irao evoluir.' }] },
       b3: { title: 'TYPOGRAPHY TEMPLE', sub: 'Polos Evolutivos', color: '#aaaaaa', icon: '?', sections: [{ tag: 'Em Construcao', lbl: 'Terreno', desc: 'Area reservada para Fontes CSS. Alunos irao evoluir.' }] },
       b4: { title: 'ANIMATION ALLEY', sub: 'Polos Evolutivos', color: '#aaaaaa', icon: '?', sections: [{ tag: 'Em Construcao', lbl: 'Terreno', desc: 'Area reservada para Animacoes CSS. Alunos irao evoluir.' }] },
-     b5: {
+  b5: {
   title: 'DOM DOMAIN',
-  sub: 'Árvore de Energia',
+  sub: 'Arvore de Energia',
   color: '#39FF14',
-  icon: '🌳',
+  icon: 'DOM',
   sections: [
     {
-      tag: 'O QUE É?',
-      lbl: 'Document Object Model',
-      desc: 'Clique para aprender sobre o DOM.',
-      details: 'O DOM é uma representação em árvore de todos os elementos HTML. Cada elemento se torna um nó que pode ser manipulado pelo JavaScript.'
+      tag: 'document',
+      lbl: 'Objeto Principal',
+      desc: 'Representa toda a pagina HTML carregada pelo navegador.',
+      ex: 'console.log(document.title);'
     },
     {
-      tag: 'ÁRVORE DOM',
-      lbl: 'Estrutura Hierárquica',
-      desc: 'Clique para visualizar.',
-      details: 'O navegador converte o HTML em uma árvore composta por nós pais, filhos e irmãos.'
+      tag: 'getElementById()',
+      lbl: 'Busca por ID',
+      desc: 'Localiza elementos usando o atributo id.',
+      ex: 'const caixa = document.getElementById("caixa");'
     },
     {
-      tag: 'SELEÇÃO',
-      lbl: 'Encontrando Elementos',
-      desc: 'Clique para descobrir.',
-      details: 'querySelector(), querySelectorAll() e getElementById() são usados para localizar elementos.'
+      tag: 'querySelector()',
+      lbl: 'Seletor CSS',
+      desc: 'Seleciona o primeiro elemento encontrado.',
+      ex: 'const btn = document.querySelector(".botao");'
     },
     {
-      tag: 'CRIAÇÃO',
-      lbl: 'Criando Nós',
-      desc: 'Clique para descobrir.',
-      details: 'createElement() cria novos elementos e appendChild() os adiciona à página.'
+      tag: 'querySelectorAll()',
+      lbl: 'Multiplos Elementos',
+      desc: 'Retorna todos os elementos encontrados.',
+      ex: 'const cards = document.querySelectorAll(".card");'
+    },
+    {
+      tag: 'textContent',
+      lbl: 'Alterar Texto',
+      desc: 'Modifica apenas o texto de um elemento.',
+      ex: 'titulo.textContent = "Novo Texto";'
+    },
+    {
+      tag: 'innerHTML',
+      lbl: 'Inserir HTML',
+      desc: 'Permite inserir codigo HTML dinamicamente.',
+      ex: 'box.innerHTML = "<h2>DOM POWER</h2>";'
+    },
+    {
+      tag: 'createElement()',
+      lbl: 'Criar Elementos',
+      desc: 'Cria novos elementos HTML.',
+      ex: 'const div = document.createElement("div");'
+    },
+    {
+      tag: 'appendChild()',
+      lbl: 'Adicionar Elementos',
+      desc: 'Adiciona um elemento filho.',
+      ex: 'document.body.appendChild(div);'
+    },
+    {
+      tag: 'addEventListener()',
+      lbl: 'Eventos',
+      desc: 'Escuta cliques, teclas e outras interacoes.',
+      ex: 'btn.addEventListener("click", () => alert("Clicou"));'
+    },
+    {
+      tag: 'classList',
+      lbl: 'Classes CSS',
+      desc: 'Adiciona ou remove classes dinamicamente.',
+      ex: 'card.classList.add("ativo");'
+    },
+    {
+      tag: 'parentElement',
+      lbl: 'Elemento Pai',
+      desc: 'Acessa o elemento pai de um no.',
+      ex: 'console.log(item.parentElement);'
+    },
+    {
+      tag: 'children',
+      lbl: 'Elementos Filhos',
+      desc: 'Lista todos os filhos diretos.',
+      ex: 'console.log(lista.children);'
+    },
+    {
+      tag: 'remove()',
+      lbl: 'Remover Elementos',
+      desc: 'Remove elementos da pagina.',
+      ex: 'elemento.remove();'
+    },
+    {
+      tag: 'DOM FACT 1',
+      lbl: 'Curiosidade',
+      desc: 'O DOM e uma API do navegador, nao do JavaScript.',
+      ex: 'JavaScript usa o DOM para controlar a pagina.'
+    },
+    {
+      tag: 'DOM FACT 2',
+      lbl: 'Curiosidade',
+      desc: 'Cada tag HTML vira um no na arvore DOM.',
+      ex: 'html > body > div > p'
+    },
+    {
+      tag: 'DOM FACT 3',
+      lbl: 'Curiosidade',
+      desc: 'React utiliza Virtual DOM para melhorar desempenho.',
+      ex: 'Atualizacoes mais rapidas e eficientes.'
     }
   ]
 },
